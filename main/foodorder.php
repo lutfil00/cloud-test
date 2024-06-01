@@ -1,47 +1,32 @@
 <?php
+$port = $_SERVER['WEBSITE_MYSQL_PORT'];
+$hostname = "localhost:$port";
+$username = 'azure';
+$pass = '6#vWHD_$';
+$database = 'localdb'; 
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+$connect = new mysqli($hostname, $username, $pass, $database);
 
-// Database connection details
-$server = "127.0.0.1:51553";
-$username = "azure";
-$password = "6#vWHD_$";
-$database = "localdb";
-
-// Create connection
-$connect = new mysqli($server, $username, $password, $database);
-
-// Check connection
 if ($connect->connect_error) {
-    die('Connection failed: ' . $connect->connect_error);
+	die('Connection failed ' . $connect->connect_error);
 }
 
-// Check if the request method is POST
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve and sanitize POST data
-    $name = $connect->real_escape_string($_POST['name']);
-    $phone = $connect->real_escape_string($_POST['phone']);
-    $address = $connect->real_escape_string($_POST['address']);
-    $food = $connect->real_escape_string($_POST['food']);
-    $quantity = $connect->real_escape_string($_POST['quantity']);
-    $requests = $connect->real_escape_string($_POST['requests']);
+$name = $_POST['name'];
+$phone = $_POST['phone'];
+$address = $_POST['address'];
+$food = $_POST['food'];
+$quantity = $_POST['quantity'];
+$requests = $_POST['requests'];
 
-    // Prepare the SQL statement
-    $sql = "INSERT INTO test (name, phone, address, food, quantity, requests)
-            VALUES ('$name', '$phone', '$address', '$food', '$quantity', '$requests')";
+$mysql = "INSERT INTO food (name,phone,address,food,quantity,requests)
+		  VALUES ('$name','$phone','$address','$food','$quantity','$requests')";
 
-    // Execute the query
-    if ($connect->query($sql) === TRUE) {
-        echo 'Your order has successfully been placed.';
-    } else {
-        echo 'ERROR: ' . $sql . '<br>' . $connect->error;
-    }
+if ($connect->query($mysql) === TRUE) {
+	echo 'Your order has succesfully been placed.';
 } else {
-    echo 'Invalid request method.';
+	echo 'ERROR: ' . $mysql . '<br>' . $connect->error;
 }
 
-// Close the connection
 $connect->close();
 
 ?>
