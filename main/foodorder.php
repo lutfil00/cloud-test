@@ -4,7 +4,7 @@ $port = $_SERVER['WEBSITE_MYSQL_PORT'];
 $server = "localhost:$port";
 $username = "azure";
 $pass = "6#vWHD_$";
-$database = 'cloudwebapp'; 
+$database = 'localdb'; 
 
 $connect = new mysqli($server, $username, $pass, $database);
 
