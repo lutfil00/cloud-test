@@ -85,7 +85,7 @@
   <!-- Spacing -->
   <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
 
-  <form action="handle_ticket.php" method="post">
+  <form action="main/handle_ticket.php" method="post">
 
     <fieldset><legend>Please pick your ticket:</legend>
       <p>
