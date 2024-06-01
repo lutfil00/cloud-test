@@ -1,9 +1,9 @@
 <?php
 
-$hostname = 'localhost';
-$username = 'root';
-$pass = 'password';
-$database = 'cloudwebapp'; 
+$port = $_SERVER['WEBSITE_MYSQL_PORT'];
+$server = "localhost:$port";
+$username = "root";
+$pass = "password";
 
 $connect = new mysqli($hostname, $username, $pass, $database);
 
