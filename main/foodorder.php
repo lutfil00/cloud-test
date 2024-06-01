@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Database connection details
-$server = "localhost:51553";
+$server = "127.0.0.1:51553";
 $username = "azure";
 $password = "6#vWHD_$";
 $database = "localdb";
