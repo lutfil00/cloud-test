@@ -1,6 +1,6 @@
 <?php 
    $page_title = 'Ticket Purchase Confirmation';
-   include ('./ticket_header.html');
+   include ('main/ticket_header.html');
 
 	// Variable declaration
   	$dDay = $_POST['day'];
@@ -48,5 +48,5 @@
 	</div> <!-- container -->
 
 	<?php
-		include ('./ticket_footer.html');
+		include ('main/ticket_footer.html');
 	?>
