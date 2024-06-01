@@ -1,6 +1,6 @@
 <?php 
    $page_title = 'Bus Ticket System';
-   include ('./ticket_header.html');
+   include ('main/ticket_header.html');
 ?>
 
 <body>
@@ -123,5 +123,5 @@
   </form>
 
 <?php
-    include ('./ticket_footer.html');
+    include ('main/ticket_footer.html');
 ?>
