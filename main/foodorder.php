@@ -1,6 +1,6 @@
 <?php
 
-#$port = $_SERVER['WEBSITE_MYSQL_PORT'];
+$port = $_SERVER['WEBSITE_MYSQL_PORT'];
 $server = "localhost:51553";
 $username = "azure";
 $pass = "6#vWHD_$";
