@@ -1,9 +1,9 @@
 <?php
 
 $hostname = 'localhost';
-$username = 'admin';
-$pass = 'student';
-$database = 'food'; 
+$username = 'root';
+$pass = 'password';
+$database = 'cloudwebapp'; 
 
 $connect = new mysqli($hostname, $username, $pass, $database);
 
@@ -18,7 +18,7 @@ $food = $_POST['food'];
 $quantity = $_POST['quantity'];
 $requests = $_POST['requests'];
 
-$mysql = "INSERT INTO food (name,phone,address,food,quantity,requests)
+$mysql = "INSERT INTO test (name,phone,address,food,quantity,requests)
 		  VALUES ('$name','$phone','$address','$food','$quantity','$requests')";
 
 if ($connect->query($mysql) === TRUE) {
@@ -29,4 +29,4 @@ if ($connect->query($mysql) === TRUE) {
 
 $connect->close();
 
-?>	
+?>
