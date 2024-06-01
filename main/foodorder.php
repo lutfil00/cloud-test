@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 $server = "localhost:51553";
 $username = "azure";
 $password = "6#vWHD_$";
-$database = 'localdb';
+$database = "localdb";
 
 // Create connection
 $connect = new mysqli($server, $username, $password, $database);
