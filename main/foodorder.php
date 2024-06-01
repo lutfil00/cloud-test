@@ -7,26 +7,26 @@ $database = 'localdb';
 
 $connect = new mysqli($hostname, $username, $pass, $database);
 
+// Check connection
 if ($connect->connect_error) {
-	die('Connection failed ' . $connect->connect_error);
+    die("Connection failed: " . $connect->connect_error);
 }
 
-$name = $_POST['name'];
-$phone = $_POST['phone'];
-$address = $_POST['address'];
-$food = $_POST['food'];
-$quantity = $_POST['quantity'];
-$requests = $_POST['requests'];
+// Handle form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["name"];
+    $phone = $_POST["phone"];
+    $address = $_POST["address"];
+    $food = $_POST["food"];
+    $quantity = $_POST["quantity"];
+    $requests = $_POST["requests"];
 
-$mysql = "INSERT INTO food (name,phone,address,food,quantity,requests)
-		  VALUES ('$name','$phone','$address','$food','$quantity','$requests')";
+    // Insert data into database
+    $sql = "INSERT INTO orders (name, phone, address, food, quantity, requests) VALUES ('$name', '$phone', '$address', '$food', '$quantity', '$requests')";
+    $connect->query($sql);
 
-if ($connect->query($mysql) === TRUE) {
-	echo 'Your order has succesfully been placed.';
-} else {
-	echo 'ERROR: ' . $mysql . '<br>' . $connect->error;
+    // Close connection
+    $connect->close();
 }
-
-$connect->close();
 
 ?>
