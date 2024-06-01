@@ -2,10 +2,11 @@
 
 $port = $_SERVER['WEBSITE_MYSQL_PORT'];
 $server = "localhost:$port";
-$username = "root";
-$pass = "password";
+$username = "azure";
+$pass = "6#vWHD_$";
+$database = 'cloudwebapp'; 
 
-$connect = new mysqli($hostname, $username, $pass, $database);
+$connect = new mysqli($server, $username, $pass, $database);
 
 if ($connect->connect_error) {
 	die('Connection failed ' . $connect->connect_error);
